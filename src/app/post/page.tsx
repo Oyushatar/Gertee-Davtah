@@ -83,6 +83,7 @@ const Page = () => {
                 </div>
                 <Bookmark />
               </div>
+              <div>0 likes</div>
               <div>{post.description}</div>
               <div
                 onClick={() => redirectToComments(post._id)}
@@ -90,17 +91,6 @@ const Page = () => {
               >
                 view all comments
               </div>
-              <CardFooter>
-                <Dialog>
-                  <DialogTrigger>liked people's</DialogTrigger>
-                  <DialogContent>
-                    <DialogHeader>
-                      <DialogTitle>People liked on this Post!</DialogTitle>
-                      <DialogDescription>{post.profileImage}</DialogDescription>
-                    </DialogHeader>
-                  </DialogContent>
-                </Dialog>
-              </CardFooter>
             </Card>
           </div>
         );

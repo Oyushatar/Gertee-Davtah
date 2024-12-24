@@ -15,8 +15,6 @@ import { useState } from "react";
 
 export default function Home() {
   const [email, setEmail] = useState<string | null>(null);
-  const [firstName, setFirstName] = useState<string | null>(null);
-  const [lastName, setLastName] = useState<string | null>(null);
   const [userName, setUserName] = useState<string | null>(null);
   const [password, setPassword] = useState<string | null>(null);
 
@@ -36,22 +34,6 @@ export default function Home() {
       <Card className="bg-black h-screen w-screen justify-center">
         <CardHeader className="text-white">
           <img src="https://t4.ftcdn.net/jpg/03/97/48/01/360_F_397480131_ifXqWNKVteOhczWDJBeODrnMIbVcVp13.jpg" />
-          <Input
-            placeholder="firstName"
-            onChange={(e) => setFirstName(e.target.value)}
-            value={firstName || ""}
-          />
-          {firstName !== null && firstName === "" && (
-            <div className="text-red-600">error</div>
-          )}
-          <Input
-            placeholder="lastName"
-            onChange={(e) => setLastName(e.target.value)}
-            value={lastName || ""}
-          />
-          {lastName !== null && lastName === "" && (
-            <div className="text-red-600">error</div>
-          )}
           <Input
             placeholder="userName"
             onChange={(e) => setUserName(e.target.value)}
