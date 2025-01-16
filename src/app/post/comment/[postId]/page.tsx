@@ -97,6 +97,7 @@ const Page = ({ params }: { params: Promise<{ postId: string }> }) => {
           </div>
         );
       })}
+      <div></div>
       <div className="flex bottom-0 pb-10 absolute">
         <Input className="w-[250px] " />
         <Button
