@@ -10,12 +10,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { useRouter } from "next/navigation";
+import { FastForward } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [email, setEmail] = useState<string | null>(null);
-  const router = useRouter();
   const [userName, setUserName] = useState<string | null>(null);
   const [password, setPassword] = useState<string | null>(null);
   const [newUserRes, setNewUserRes] = useState<string | null>(null);
@@ -38,16 +37,16 @@ export default function Home() {
     console.log(bro);
     const token = bro.token;
     localStorage.setItem("token", token);
-    router.push(`/post`);
   };
   const signup = () => {
-    if (email?.includes("@") === false) {
-      alert("email @ bhgui bn");
-      return false;
+    if (!email || !email.includes("@")) {
+      alert("Email not valid");
+    }
+    if (!password || !password.includes("")) {
+      alert("password not valid");
     } else {
-      true;
+      alert("successfully signned up");
       newUser();
-      // redirectToPost();
     }
   };
   if (loading === true) {
@@ -70,7 +69,7 @@ export default function Home() {
             value={userName || ""}
           />
           {userName !== null && userName === "" && (
-            <div className="text-red-600">ug nohnuu!</div>
+            <div className="text-red-600">error</div>
           )}
           <Input
             placeholder="email"
@@ -78,7 +77,7 @@ export default function Home() {
             value={email || ""}
           />
           {email !== null && email === "" && (
-            <div className="text-red-600">ug nohnuu!</div>
+            <div className="text-red-600">error</div>
           )}
           <Input
             placeholder="password"
@@ -86,7 +85,7 @@ export default function Home() {
             value={password || ""}
           />
           {password !== null && password === "" && (
-            <div className="text-red-600">ug nohnuu!</div>
+            <div className="text-red-600">error</div>
           )}
           <Button onClick={signup} className="hover: bg-sky-700">
             Sign up
